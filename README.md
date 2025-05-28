@@ -1,115 +1,263 @@
-Linux and Git Hands-On Assignment – Celebal Internship
-This document contains step-by-step tasks and commands performed during the Linux and Git hands-on session under the Celebal Internship program.
-Task 1: File Creation & Permission Management
-Objective: Learn to create a file and assign different permissions to the owner, group, and others.
 
-Commands Used:
-- touch test1.txt       # Creates an empty file named test1.txt
-- chmod 764 test1.txt   # Sets permissions: owner (read, write, execute), group (read, write), others (read)
-- ls -l test1.txt       # Displays file permissions
+# 📘 Celebal Internship – Week 1: Linux & Git Assignment
 
-Explanation:
-Permission 764 means:
-- Owner: 7 (read/write/execute)
-- Group: 6 (read/write)
-- Others: 4 (read only)
+## 🗂️ Week 1 Tasks: Linux Essentials, Git Basics & Version Control
 
-Task 2: Basic Linux Commands
-Objective: Practice using basic Linux commands to manipulate files and directories.
+---
 
-Commands Used:
-- mkdir week1          # Creates a directory named week1
-- cd week1             # Navigates into week1 directory
-- touch file1.txt      # Creates a new file inside week1
-- ls -l                # Lists directory contents with details
-- rm file1.txt         # Deletes file1.txt
+### 🔹 Task 1: File Creation & Permission Management
 
-Task 3: Directory Navigation & File Movement
-Objective: Learn to move files across directories.
+**Objective:**  
+Create a file and practice assigning permissions using `chmod`.
 
-Commands Used:
-- mkdir dirA dirB      # Create two directories
-- touch dirA/demo.txt  # Create a text file inside dirA
-- mv dirA/demo.txt dirB/  # Move demo.txt to dirB
-- cd dirB              # Go to dirB
-- ls                   # Verify file is moved
+**Commands & Output:**
 
-Task 4: User & Group Management
-Objective: Learn to manage users and groups and assign access permissions.
+```bash
+[root@localhost week1]# touch myfile.txt
+[root@localhost week1]# ls -l myfile.txt
+-rw-r--r--. 1 root root 0 May 28 15:06 myfile.txt
 
-Commands Used:
-- groupadd devops             # Create a new group
-- useradd vivek -G devops     # Create a new user and add to group
-- mkdir /opt/test1            # Create a secure directory
-- chown vivek:devops /opt/test1  # Change ownership to user and group
-- chmod 770 /opt/test1        # Grant full access to owner and group
+[root@localhost week1]# chmod 700 myfile.txt
+[root@localhost week1]# ls -l myfile.txt
+-rwx------. 1 root root 0 May 28 15:06 myfile.txt
 
-Task 5: Common Linux Commands
-Objective: Practice essential Linux commands for scripting and automation.
+[root@localhost week1]# chmod 640 myfile.txt
+[root@localhost week1]# ls -l myfile.txt
+-rw-r-----. 1 root root 0 May 28 15:06 myfile.txt
+```
 
-Commands Used:
-- pwd                         # Show present working directory
-- echo "Hello" > hello.txt    # Write to a file
-- cat hello.txt               # View file contents
-- cp hello.txt copy.txt       # Copy file
-- whoami                      # Display current user
+**Explanation:**  
+- `touch myfile.txt`: Creates an empty file named `myfile.txt`.
+- `chmod 700`: Gives full permissions (read, write, execute) to the owner only.
+- `chmod 640`: Sets read/write for owner, read for group, and no permissions for others.
 
-Task 6: Git Installation & Configuration
-Objective: Install Git and set global configuration.
+---
 
-Commands Used:
-- dnf install git -y                   # Install Git
-- git config --global user.name        # Set Git username
-- git config --global user.email       # Set Git email
+### 🔹 Task 2: Basic Linux File Commands
 
-Task 7: Setup Remote Repository and Push to Main
-Objective: Initialize local Git repo, link to remote, and push.
+**Objective:**  
+Learn basic file/directory operations.
 
-Commands Used:
-- git init                              # Initialize local repository
-- git remote add origin <repo-url>      # Link to remote repository
-- touch README.md
-- git add .
-- git commit -m "Initial commit"
-- git pull --rebase origin main         # Sync with remote
-- git push -u origin main               # Push code
+**Commands:**
 
-Task 8: Branching & Merging
-Objective: Learn to work with branches.
+```bash
+[root@localhost ~]# mkdir test_folder
+[root@localhost ~]# cd test_folder
+[root@localhost test_folder]# touch file1.txt
+[root@localhost test_folder]# ls
+file1.txt
+[root@localhost test_folder]# rm file1.txt
+[root@localhost test_folder]# cd ..
+[root@localhost ~]# rmdir test_folder
+```
 
-Commands Used:
-- git checkout -b feature               # Create and switch to 'feature' branch
-- echo "Feature" > feature.txt
-- git add feature.txt
-- git commit -m "Added feature"
-- git push -u origin feature            # Push to GitHub
-- Merge via GitHub pull request
+**Explanation:**  
+- `mkdir`: Creates a new directory.
+- `cd`: Changes directory.
+- `touch`: Creates an empty file.
+- `rm`: Deletes files.
+- `rmdir`: Deletes an empty directory.
 
-Task 9: Undo Last Commit / Remove File
-Objective: Undo Git commits and remove files.
+---
 
-Commands Used:
-- git reset --soft HEAD~1              # Undo last commit
-- git rm unwanted.txt                  # Remove file
-- git commit -m "Removed unwanted.txt"
-- git push
+### 🔹 Task 3: File Navigation & Moving Files
 
-Task 10: Merge Conflicts
-Objective: Simulate and resolve Git merge conflicts.
+**Objective:**  
+Move files between folders and navigate using CLI.
 
-Steps:
-- Create same file with different content on two branches
-- Merge branches
-- Resolve conflicts manually
-- git add <resolved-file>
-- git commit -m "Resolved conflict"
+**Commands:**
 
-Task 11: More Git Commands
-Objective: Explore additional useful Git commands.
+```bash
+[root@localhost ~]# mkdir folderA folderB
+[root@localhost ~]# touch folderA/fileA.txt
+[root@localhost ~]# mv folderA/fileA.txt folderB/
+[root@localhost ~]# cd folderB
+[root@localhost folderB]# ls
+fileA.txt
+```
 
-Commands Used:
-- git log          # View commit history
-- git status       # Show working tree status
-- git stash        # Temporarily save changes
-- git diff         # Show file changes
+**Explanation:**  
+- `mv`: Moves file from one folder to another.
+- `cd` & `ls`: Navigate and list contents.
 
+---
+
+### 🔹 Task 4: User and Group Management
+
+**Objective:**  
+Create user/group and set proper file ownership and access.
+
+**Commands:**
+
+```bash
+[root@localhost ~]# groupadd devops
+[root@localhost ~]# useradd -G devops vivek
+[root@localhost ~]# mkdir /opt/test1
+[root@localhost ~]# chown vivek:devops /opt/test1
+[root@localhost ~]# chmod 770 /opt/test1
+```
+
+**Explanation:**  
+- `groupadd` & `useradd`: Create group and user.
+- `chown`: Assign user and group ownership.
+- `chmod 770`: Full access to owner/group, none to others.
+
+---
+
+### 🔹 Task 5: Exploring Linux Commands
+
+**Objective:**  
+Explore basic commands to view and manage content.
+
+**Commands:**
+
+```bash
+[root@localhost ~]# echo "Welcome to Linux" > file.txt
+[root@localhost ~]# cat file.txt
+Welcome to Linux
+
+[root@localhost ~]# head -n 1 file.txt
+Welcome to Linux
+
+[root@localhost ~]# tail -n 1 file.txt
+Welcome to Linux
+
+[root@localhost ~]# whoami
+root
+```
+
+**Explanation:**  
+- `echo`: Writes text to file.
+- `cat`, `head`, `tail`: View file contents.
+- `whoami`: Displays current user.
+
+---
+
+### 🔹 Task 6: Git Installation & Initialization
+
+**Objective:**  
+Install Git and configure it for the first time.
+
+**Commands:**
+
+```bash
+[root@localhost ~]# dnf install git -y
+[root@localhost ~]# git config --global user.name "Vivek Singh"
+[root@localhost ~]# git config --global user.email "vivek@example.com"
+[root@localhost ~]# git init
+```
+
+**Explanation:**  
+- `git config`: Sets username and email.
+- `git init`: Initializes a local Git repository.
+
+---
+
+### 🔹 Task 7: Remote Repo Setup & Initial Push
+
+**Objective:**  
+Connect local repo to GitHub and push initial commit.
+
+**Commands:**
+
+```bash
+[root@localhost ~]# touch README.md
+[root@localhost ~]# echo "# Celebal Internship" > README.md
+[root@localhost ~]# git add .
+[root@localhost ~]# git commit -m "Initial commit"
+[root@localhost ~]# git remote add origin https://github.com/VivekSingh12330/celebalintern
+[root@localhost ~]# git branch -M main
+[root@localhost ~]# git pull --rebase origin main  # in case of conflict
+[root@localhost ~]# git push -u origin main
+```
+
+**Explanation:**  
+- `git remote add`: Links repo to GitHub.
+- `git push`: Uploads code to GitHub.
+
+---
+
+### 🔹 Task 8: Git Branching & PR Merge
+
+**Objective:**  
+Work with branches and merge them via PR.
+
+**Commands:**
+
+```bash
+[root@localhost ~]# git checkout -b feature-1
+[root@localhost ~]# echo "Feature added" > feature.txt
+[root@localhost ~]# git add .
+[root@localhost ~]# git commit -m "Added feature"
+[root@localhost ~]# git push -u origin feature-1
+```
+
+**Next:**  
+Go to GitHub → Create Pull Request → Merge to main
+
+---
+
+### 🔹 Task 9: Undo Commit / File Removal
+
+**Commands:**
+
+```bash
+# Undo last commit but keep changes
+[root@localhost ~]# git reset --soft HEAD~1
+
+# Remove file from repo
+[root@localhost ~]# git rm unwanted.txt
+[root@localhost ~]# git commit -m "Removed unwanted.txt"
+[root@localhost ~]# git push
+```
+
+---
+
+### 🔹 Task 10: Merge Conflict
+
+**Objective:**  
+Simulate and resolve a Git merge conflict.
+
+**On `main`:**
+
+```bash
+[root@localhost ~]# echo "Hello from main" > conflict.txt
+[root@localhost ~]# git add .
+[root@localhost ~]# git commit -m "main update"
+[root@localhost ~]# git push
+```
+
+**On `feature` branch:**
+
+```bash
+[root@localhost ~]# git checkout -b conflict-branch
+[root@localhost ~]# echo "Hello from branch" > conflict.txt
+[root@localhost ~]# git add .
+[root@localhost ~]# git commit -m "branch update"
+[root@localhost ~]# git push origin conflict-branch
+```
+
+Now merge PR via GitHub → Resolve conflicts → Commit.
+
+---
+
+### 🔹 Task 11: Common Git Commands
+
+```bash
+git log          # Shows commit history
+git status       # Shows current changes
+git diff         # Shows file differences
+git stash        # Temporarily saves changes
+git clone <url>  # Clones repo
+git pull origin main  # Updates local repo
+```
+
+---
+
+## ✅ All Tasks Completed
+
+```md
+![Task Screenshot](screenshots/task1.png)
+```
+
+---
