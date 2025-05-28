@@ -1,248 +1,115 @@
-# Celebalintern
+Linux and Git Hands-On Assignment – Celebal Internship
+This document contains step-by-step tasks and commands performed during the Linux and Git hands-on session under the Celebal Internship program.
+Task 1: File Creation & Permission Management
+Objective: Learn to create a file and assign different permissions to the owner, group, and others.
+
+Commands Used:
+- touch test1.txt       # Creates an empty file named test1.txt
+- chmod 764 test1.txt   # Sets permissions: owner (read, write, execute), group (read, write), others (read)
+- ls -l test1.txt       # Displays file permissions
+
+Explanation:
+Permission 764 means:
+- Owner: 7 (read/write/execute)
+- Group: 6 (read/write)
+- Others: 4 (read only)
+
+Task 2: Basic Linux Commands
+Objective: Practice using basic Linux commands to manipulate files and directories.
+
+Commands Used:
+- mkdir week1          # Creates a directory named week1
+- cd week1             # Navigates into week1 directory
+- touch file1.txt      # Creates a new file inside week1
+- ls -l                # Lists directory contents with details
+- rm file1.txt         # Deletes file1.txt
+
+Task 3: Directory Navigation & File Movement
+Objective: Learn to move files across directories.
+
+Commands Used:
+- mkdir dirA dirB      # Create two directories
+- touch dirA/demo.txt  # Create a text file inside dirA
+- mv dirA/demo.txt dirB/  # Move demo.txt to dirB
+- cd dirB              # Go to dirB
+- ls                   # Verify file is moved
+
+Task 4: User & Group Management
+Objective: Learn to manage users and groups and assign access permissions.
+
+Commands Used:
+- groupadd devops             # Create a new group
+- useradd vivek -G devops     # Create a new user and add to group
+- mkdir /opt/test1            # Create a secure directory
+- chown vivek:devops /opt/test1  # Change ownership to user and group
+- chmod 770 /opt/test1        # Grant full access to owner and group
+
+Task 5: Common Linux Commands
+Objective: Practice essential Linux commands for scripting and automation.
+
+Commands Used:
+- pwd                         # Show present working directory
+- echo "Hello" > hello.txt    # Write to a file
+- cat hello.txt               # View file contents
+- cp hello.txt copy.txt       # Copy file
+- whoami                      # Display current user
+
+Task 6: Git Installation & Configuration
+Objective: Install Git and set global configuration.
+
+Commands Used:
+- dnf install git -y                   # Install Git
+- git config --global user.name        # Set Git username
+- git config --global user.email       # Set Git email
+
+Task 7: Setup Remote Repository and Push to Main
+Objective: Initialize local Git repo, link to remote, and push.
+
+Commands Used:
+- git init                              # Initialize local repository
+- git remote add origin <repo-url>      # Link to remote repository
+- touch README.md
+- git add .
+- git commit -m "Initial commit"
+- git pull --rebase origin main         # Sync with remote
+- git push -u origin main               # Push code
+
+Task 8: Branching & Merging
+Objective: Learn to work with branches.
+
+Commands Used:
+- git checkout -b feature               # Create and switch to 'feature' branch
+- echo "Feature" > feature.txt
+- git add feature.txt
+- git commit -m "Added feature"
+- git push -u origin feature            # Push to GitHub
+- Merge via GitHub pull request
+
+Task 9: Undo Last Commit / Remove File
+Objective: Undo Git commits and remove files.
+
+Commands Used:
+- git reset --soft HEAD~1              # Undo last commit
+- git rm unwanted.txt                  # Remove file
+- git commit -m "Removed unwanted.txt"
+- git push
+
+Task 10: Merge Conflicts
+Objective: Simulate and resolve Git merge conflicts.
+
+Steps:
+- Create same file with different content on two branches
+- Merge branches
+- Resolve conflicts manually
+- git add <resolved-file>
+- git commit -m "Resolved conflict"
+
+Task 11: More Git Commands
+Objective: Explore additional useful Git commands.
+
+Commands Used:
+- git log          # View commit history
+- git status       # Show working tree status
+- git stash        # Temporarily save changes
+- git diff         # Show file changes
 
----
-
-````markdown
-# 💻 Linux & Git Assignment – Celebal Internship
-
-This document contains a comprehensive list of tasks completed during the internship project using **Linux** and **Git** tools.
-
----
-
-## ✅ Task 1: Create a File and Assign Permissions
-
-**Objective:** Create a file and assign read, write, and execute permissions to owner, group, and others.
-
-### Commands Used:
-```bash
-touch file1.txt
-ls -l file1.txt
-chmod 754 file1.txt    # rwxr-xr--
-ls -l file1.txt
-````
-
-📸 Screenshot:
-`![Permissions Screenshot](screenshots/task1_permissions.png)`
-
----
-
-## ✅ Task 2: Execute Basic Linux Commands
-
-**Objective:** Learn and execute basic file and directory manipulation commands.
-
-### Commands Used:
-
-```bash
-mkdir myfolder
-cd myfolder
-touch myfile.txt
-ls
-rm myfile.txt
-cd ..
-rmdir myfolder
-```
-
-📸 Screenshot:
-`![Basic Commands Screenshot](screenshots/task2_basic.png)`
-
----
-
-## ✅ Task 3: Navigate Directories and Move Files
-
-**Objective:** Navigate through directories, list file contents, and move files.
-
-### Commands Used:
-
-```bash
-mkdir folder1 folder2
-touch folder1/testfile.txt
-mv folder1/testfile.txt folder2/
-ls folder2/
-```
-
-📸 Screenshot:
-`![Navigation Screenshot](screenshots/task3_navigation.png)`
-
----
-
-## ✅ Task 4: Create User and Group, Manage Permissions
-
-**Objective:** Add new user/group and assign permissions.
-
-### Commands Used:
-
-```bash
-groupadd devops
-useradd vivek -G devops
-mkdir /opt/test1
-chown vivek:devops /opt/test1
-chmod 770 /opt/test1
-```
-
-📸 Screenshot:
-`![User Management Screenshot](screenshots/task4_user_group.png)`
-
----
-
-## ✅ Task 5: More Linux Commands
-
-**Objective:** Practice and understand various Linux commands.
-
-### Examples Used:
-
-```bash
-whoami
-uname -r
-df -h
-free -m
-history
-```
-
-📸 Screenshot:
-`![More Linux Commands Screenshot](screenshots/task5_more_commands.png)`
-
----
-
-## ✅ Task 6: Introduction to Git – Installation and Basics
-
-**Objective:** Learn Git installation and use basic Git commands.
-
-### Commands Used:
-
-```bash
-dnf install git -y
-git --version
-git config --global user.name "Vivek Singh"
-git config --global user.email "you@example.com"
-git init
-```
-
-📸 Screenshot:
-`![Git Init Screenshot](screenshots/task6_git_init.png)`
-
----
-
-## ✅ Task 7: Setup Remote Repository and Push
-
-**Objective:** Link local repo to GitHub and push code.
-
-### Commands Used:
-
-```bash
-git remote add origin https://github.com/VivekSingh12330/celebalintern
-git branch -M main
-git add .
-git commit -m "Initial commit"
-git pull --rebase origin main
-git push -u origin main
-```
-
-📸 Screenshot:
-`![Git Push Screenshot](screenshots/task7_git_push.png)`
-
----
-
-## ✅ Task 8: Create Branch, Push and Merge
-
-**Objective:** Create a branch, commit and push changes, and merge to main.
-
-### Commands Used:
-
-```bash
-git checkout -b feature1
-echo "This is feature1" > feature1.txt
-git add feature1.txt
-git commit -m "Add feature1"
-git push -u origin feature1
-# Go to GitHub UI and create a Pull Request to merge `feature1` into `main`
-```
-
-📸 Screenshot:
-`![Branch Merge Screenshot](screenshots/task8_merge.png)`
-
----
-
-## ✅ Task 9: Undo Last Commit / Remove File
-
-**Objective:** Undo the last commit or delete a remote file using CLI.
-
-### Undo Last Commit (keep changes locally):
-
-```bash
-git reset --soft HEAD~1
-```
-
-### Delete File from Repo:
-
-```bash
-git rm unwanted.txt
-git commit -m "Remove unwanted.txt"
-git push
-```
-
-📸 Screenshot:
-`![Undo Screenshot](screenshots/task9_undo.png)`
-
----
-
-## ✅ Task 10: Merge Conflicts
-
-**Objective:** Handle merge conflicts while merging branches.
-
-### Scenario:
-
-Modified the same file in both `main` and `feature2`, then tried to merge.
-
-### Commands Used:
-
-```bash
-git checkout main
-git merge feature2
-# Conflict occurs
-# Manually resolve conflict in the file
-git add conflicted_file.txt
-git commit -m "Resolved merge conflict"
-```
-
-📸 Screenshot:
-`![Merge Conflict Screenshot](screenshots/task10_conflict.png)`
-
----
-
-## ✅ Task 11: More Git Commands
-
-**Objective:** Practice advanced Git commands.
-
-### Commands Used:
-
-```bash
-git log --oneline
-git diff
-git stash
-git stash apply
-git tag v1.0
-git show v1.0
-```
-
-📸 Screenshot:
-`![More Git Screenshot](screenshots/task11_git_more.png)`
-
----
-
-## 📌 Conclusion
-
-These tasks gave hands-on experience in:
-
-* Linux File Permissions
-* User and Group Management
-* Directory Navigation and Shell Commands
-* Git Basics, Branching, Merging, and Conflict Resolution
-
-Feel free to explore the repository, and check out the [GitHub Repo](https://github.com/VivekSingh12330/celebalintern) for source code and screenshots.
-
----
-
-```
-
-Let me know if you’d like a `.docx` or `.pdf` version of this as well.
-```
