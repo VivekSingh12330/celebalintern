@@ -552,40 +552,42 @@ git pull origin main  # Updates local repo
 ## Screenshots
 
 ### 1.
-![1](screenshots/1.png).
+![1](Screenshots/1.png).
 
 ### 2. Registration Successfully
-![2](screenshots/2.png).
+![2](Screenshots/2.png).
 
-### 3. Login
-![Login](screenshots/3_Login.png)
+### 3. 
+![3](Screenshots/3.png).
 
-### 4. Dashboard
-![Dashboard](screenshots/4_Dashboard.png)
+### 4.
+![4](Screenshots/4.png).
 
-### 5. Deposit Action
-![Deposit Action](screenshots/5_Deposit_action.png)
+### 5.
+![5](Screenshots/5.png).
 
-### 6. Deposit Action Successfully
-![Deposit Action Successfully](screenshots/6_Deposit_action_Successfully.png)
+### 6. 
+![6](Screenshots/6.png).
 
-### 7. Withdraw Action
-![Withdraw Action](screenshots/7_withdraw_action.png)
+### 7.
+![7](Screenshots/7.png).
 
-### 8. Withdraw Action Successfully
-![Withdraw Action Successfully](screenshots/8_withdraw_action_Successfully.png)
+### 8. 
+![8](Screenshots/8.png).
 
-### 9. Transfer Action
-![Transfer Action](screenshots/9_transfer_action.png)
+### 9. 
+![9](Screenshots/9.png).
 
-### 10. Transfer Action Successfully
-![Transfer Action Successfully](screenshots/10_transfer_action_successfully.png)
+### 10.
+![before deletion](Screenshots/beforedeletion.png).
 
-### 11. Receiver Account
-![Receiver Account](screenshots/11_receiver_account.png)
+### 11.
+![after deletion](Screenshots/afterdeletion.png).
 
-### 12. Logout Successfully
-![Logout Successfully](screenshots/12_logout_successfully.png)
+### Conclusion
 
+- Successfully completed all Week 1 tasks.
+- Gained hands-on experience with Linux permissions, user management, and Git workflows.
 
+End of Week 1 Assignment 🚀
 ---
