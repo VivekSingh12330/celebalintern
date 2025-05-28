@@ -1,5 +1,4 @@
-# celebalintern
-Sure! Here's a complete, detailed `README.md`-style document with all the Linux and Git tasks you've performed — written in Markdown format. You can copy this entire content and paste it into your `README.md` file. Replace the `![screenshot](...)` placeholders with the actual paths to your screenshots once uploaded.
+# Celebalintern
 
 ---
 
